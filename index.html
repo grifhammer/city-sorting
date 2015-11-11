@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>City Sorting</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script type="text/javascript" src="cities.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+</head>
+<body ng-controller="myController">
+	<input type="text" ng-model="citySearch.$" placeholder="AnySearch"><br>
+	<input type="text" ng-model="citySearch.city" placeholder="City Name"><br>
+	<input type="checkbox" ng-model="strict">
+	<button ng-click="landAreaSort()">Land Area Sort</button>
+	<div ng-repeat='city in cities | filter:citySearch:strict' class="city">
+		{{city.city}}, {{city.state}}<br>
+		{{city.landArea}}
+	</div>
+</body>
+</html>
